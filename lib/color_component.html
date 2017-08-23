@@ -1,0 +1,18 @@
+<h2>Colors</h2>
+<selected-color-detail [color]="selectedColor"></selected-color-detail>
+<h2>
+    <ul class="colors">
+        <li *ngFor="let color of pallet"
+            [class.selected]="color == selectedColor"
+            (click)="onSelect(color)">
+            <div class="card">
+                <div [style.background-color]="color.hex" class="color_block"></div>
+                <p *ngIf="color.brand != null"  class="bold" id="color-brand">{{color.brand}}</p>
+                <p *ngIf="color.brand == null"  class="bold blank">Brand</p>
+                <p *ngIf="color.id != null" class="bold" id="color-code">{{color.id}}</p>
+                <p *ngIf="color.id == null" class="bold blank" >Color Code</p>
+                <p class="color-name">{{color.name}}</p>
+            </div>
+        </li>
+    </ul>
+</h2>
